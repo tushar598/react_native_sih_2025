@@ -1,0 +1,95 @@
+import React from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity, StatusBar } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context"; 
+
+const HomeScreen = () => {
+  return (
+        <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+    <View style={styles.container}>
+      {/* Illustration */}
+      <Image
+        source={require("../assets/quiz-illustration.jpeg")} // replace with your image
+        style={styles.image}
+        resizeMode="contain"
+      />
+
+      {/* Heading */}
+      <Text style={styles.title}>Level Up Your Knowledge</Text>
+      <Text style={styles.subtitle}>
+        Join a community of learners and challenge yourself with fun quizzes.
+      </Text>
+
+      {/* Buttons */}
+      <TouchableOpacity style={styles.startButton}>
+        <Text style={styles.startText}>Start</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.signUpButton}>
+        <Text style={styles.signUpText}>Sign Up</Text>
+      </TouchableOpacity>
+    </View>
+      </SafeAreaView>
+  );
+};
+
+export default HomeScreen;
+
+const styles = StyleSheet.create({
+    safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    padding: 20,
+  },
+  image: {
+    width: "100%",
+    height: 250,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "700",
+    textAlign: "center",
+    marginBottom: 10,
+    color: "#000",
+  },
+  subtitle: {
+    fontSize: 14,
+    textAlign: "center",
+    color: "#666",
+    marginBottom: 30,
+    paddingHorizontal: 10,
+  },
+  startButton: {
+    backgroundColor: "#2196F3",
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    width: "90%",
+    alignItems: "center",
+    marginBottom: 15,
+  },
+  startText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  signUpButton: {
+    backgroundColor: "#E3F2FD",
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    width: "90%",
+    alignItems: "center",
+  },
+  signUpText: {
+    color: "#2196F3",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+});
