@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
+import { LoaderProvider } from "./src/context/LoaderContext";
 import HomeScreen from "./src/screen/Home";
 import CategoriesScreen from "./src/screen/CategoriesScreen"; 
 
@@ -26,6 +26,7 @@ const getTabScreenOptions = (routeName: string) => ({
 
 const App = () => {
   return (
+     <LoaderProvider>
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
@@ -56,6 +57,7 @@ const App = () => {
         />
       </Tab.Navigator>
     </NavigationContainer>
+    </LoaderProvider>
   );
 };
 
