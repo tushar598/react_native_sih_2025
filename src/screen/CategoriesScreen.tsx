@@ -9,14 +9,17 @@ import {
   ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 const CategoriesScreen = () => {
   const classes = [6, 7, 8, 9, 10, 11, 12];
 
   const handleClassSelect = (classNumber: number) => {
     console.log(`Selected class: ${classNumber}th`);
-    // You can add navigation or state management here
+    // Add navigation or state logic if needed
   };
+
+  const navigation = useNavigation<any>(); // ✅ Add <any> to fix TypeScript issues
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -24,7 +27,7 @@ const CategoriesScreen = () => {
       <View style={styles.container}>
         {/* Illustration */}
         <Image
-          source={require('../assets/class-illustration.jpg')} // replace with your image
+          source={require('../assets/class-illustration.jpg')}
           style={styles.image}
           resizeMode="contain"
         />
@@ -55,7 +58,10 @@ const CategoriesScreen = () => {
         </ScrollView>
 
         {/* Back Button */}
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Home")} // ✅ This now works
+          style={styles.backButton}
+        >
           <Text style={styles.backText}>Back to Home</Text>
         </TouchableOpacity>
       </View>
@@ -66,64 +72,26 @@ const CategoriesScreen = () => {
 export default CategoriesScreen;
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    padding: 20,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginBottom: 10,
-    color: '#000',
-  },
-  subtitle: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: '#666',
-    marginBottom: 30,
-    paddingHorizontal: 10,
-  },
-  scrollView: {
-    width: '100%',
-    marginBottom: 20,
-  },
-  gridContainer: {
-    alignItems: 'center',
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
+  safeArea: { flex: 1, backgroundColor: '#fff' },
+  container: { flex: 1, backgroundColor: '#fff', alignItems: 'center', padding: 20 },
+  image: { width: '100%', height: 200, marginBottom: 20 },
+  title: { fontSize: 22, fontWeight: '700', textAlign: 'center', marginBottom: 10, color: '#000' },
+  subtitle: { fontSize: 14, textAlign: 'center', color: '#666', marginBottom: 30, paddingHorizontal: 10 },
+  scrollView: { width: '100%', marginBottom: 20 },
+  gridContainer: { alignItems: 'center' },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' },
   classButton: {
     backgroundColor: '#E3F2FD',
     paddingVertical: 20,
     paddingHorizontal: 15,
     borderRadius: 10,
-    width: '48%', // Two columns with gap
+    width: '48%',
     alignItems: 'center',
     marginBottom: 15,
     borderWidth: 1,
     borderColor: '#BBDEFB',
   },
-  classText: {
-    color: '#2196F3',
-    fontSize: 16,
-    fontWeight: '600',
-  },
+  classText: { color: '#2196F3', fontSize: 16, fontWeight: '600' },
   backButton: {
     backgroundColor: '#f5f5f5',
     paddingVertical: 14,
@@ -134,9 +102,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e0e0e0',
   },
-  backText: {
-    color: '#666',
-    fontSize: 16,
-    fontWeight: '600',
-  },
+  backText: { color: '#666', fontSize: 16, fontWeight: '600' },
 });

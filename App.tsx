@@ -5,6 +5,8 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { LoaderProvider } from "./src/context/LoaderContext";
 import HomeScreen from "./src/screen/Home";
 import CategoriesScreen from "./src/screen/CategoriesScreen"; 
+import LeaderboardScreen from "./src/screen/LeaderboardScreen";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +49,7 @@ const App = () => {
         />
         <Tab.Screen 
           name="Leaderboard" 
-          component={HomeScreen}
+          component={LeaderboardScreen}
           options={getTabScreenOptions("Leaderboard")}
         />
         <Tab.Screen 
