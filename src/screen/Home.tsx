@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context"; 
 
 const HomeScreen = () => {
+  const navigation = useNavigation<any>()
   return (
         <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -22,7 +24,7 @@ const HomeScreen = () => {
 
       {/* Buttons */}
       <TouchableOpacity style={styles.startButton}>
-        <Text style={styles.startText}>Start</Text>
+        <Text style={styles.startText} onPress={() => navigation.navigate("Categories")}>Start</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.signUpButton}>
