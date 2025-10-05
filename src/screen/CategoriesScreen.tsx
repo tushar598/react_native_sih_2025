@@ -27,6 +27,8 @@ export default function CategoriesScreen() {
     navigation.navigate("WorldList", { classNumber });
   };
 
+  const navigation = useNavigation<any>(); // ✅ Add <any> to fix TypeScript issues
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
