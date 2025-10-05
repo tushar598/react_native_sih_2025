@@ -28,12 +28,12 @@ const HomeScreen = () => {
       </TouchableOpacity>
 
         {/* Show user info if logged in */}
-        {user && (
+        {/* {user && (
           <View style={styles.userInfo}>
             <Text style={styles.userText}>Name: {user.name || 'N/A'}</Text>
             <Text style={styles.userText}>Email: {user.email || 'N/A'}</Text>
           </View>
-        )}
+        )} */}
 
         {/* Optional Sign Up Button */}
         <TouchableOpacity style={styles.signUpButton}>

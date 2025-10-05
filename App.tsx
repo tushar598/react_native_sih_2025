@@ -5,12 +5,13 @@ import Tabs from "./src/screen/Tabs";
 import WorldListScreen from "./src/components/WorldListScreen";
 import WorldScreen from "./src/screen/WorldScreen";
 import { LoaderProvider } from "./src/context/LoaderContext";
+import QuizScreen from "./src/screen/QuizScreen";
 
 export type RootStackParamList = {
   Tabs: undefined;
   WorldList: { classNumber: number };
   World: { classNumber: number; subject: string };
-  Level: { classNumber: number; subject: string; level: number };
+  Quiz: { classNumber: number; subject: string; level: number };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -30,6 +31,11 @@ const App = () => {
             name="World"
             component={WorldScreen}
             options={{ headerShown: true }}
+          />
+          <Stack.Screen
+            name="Quiz"
+            component={QuizScreen}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>

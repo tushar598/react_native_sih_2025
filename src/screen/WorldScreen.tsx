@@ -10,8 +10,8 @@ export default function WorldScreen() {
   const levels = Array.from({ length: 10 }, (_, i) => i + 1);
 
   const handleLevelSelect = (level: number) => {
-    // Navigate to LevelScreen
-    navigation.navigate("Level", { classNumber, subject, level });
+    // Navigate to QuizScreen
+    navigation.navigate("Quiz", { classNumber, subject, level });
   };
 
   return (
@@ -22,7 +22,10 @@ export default function WorldScreen() {
           <TouchableOpacity
             key={level}
             style={styles.levelCard}
-            onPress={() => handleLevelSelect(level)}
+            onPress={() =>{ 
+               handleLevelSelect(level)
+              }}
+
           >
             <Text style={styles.levelText}>Level {level}</Text>
           </TouchableOpacity>
