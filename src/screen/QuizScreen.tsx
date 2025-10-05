@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
 const QuizScreen = () => {
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   
   const question = {
     question: "What is the primary function of chlorophyll in photosynthesis?",
@@ -24,7 +24,7 @@ const QuizScreen = () => {
     correctAnswer: "Absorbing sunlight energy"
   };
 
-  const handleAnswerSelect = (answer) => {
+  const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
 
